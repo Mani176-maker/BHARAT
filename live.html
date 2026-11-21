@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BHARAT ONE — One Nation, One Intelligent Solution</title>
+  <style>
+    :root {
+      --navy: #0b1d3a;
+      --navy-light: #152e57;
+      --saffron: #ff7a00;
+      --saffron-hover: #e56d00;
+      --green: #138808;
+      --green-bg: #e8f5e9;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --danger: #dc2626;
+      --danger-bg: #fef2f2;
+      --radius: 14px;
+      --shadow: 0 4px 20px rgba(11, 29, 58, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Top Disclaimer Banner */
+    .top-banner {
+      background: var(--navy);
+      color: #cbd5e1;
+      font-size: 0.78rem;
+      text-align: center;
+      padding: 8px 16px;
+      border-bottom: 2px solid var(--saffron);
+    }
+
+    .top-banner strong {
+      color: #ffffff;
+    }
+
+    /* Navigation Header */
+    header {
+      background: var(--card);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      padding: 12px 24px;
+    }
+
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--saffron), var(--green));
+      color: white;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-tab {
+      background: transparent;
+      border: 1px solid transparent;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .nav-tab:hover {
+      background: #f1f5f9;
+      color: var(--navy);
+    }
+
+    .nav-tab.active {
+      background: var(--navy);
+      color: #ffffff;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .lang-group {
+      display: flex;
+      background: #f1f5f9;
+      padding: 3px;
+      border-radius: 8px;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .lang-btn.active {
+      background: #ffffff;
+      color: var(--navy);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .status-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--green-bg);
+      color: var(--green);
+    }
+
+    .status-pill.offline {
+      background: #fef3c7;
+      color: #b45309;
+    }
+
+    .voice-btn {
+      background: var(--saffron);
+      color: white;
+      border: none;
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .voice-btn:hover {
+      background: var(--saffron-hover);
+    }
+
+    /* Main Layout */
+    main {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    .view-section {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .view-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: white;
+      border-radius: 20px;
+      padding: 44px 32px;
+      text-align: center;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255, 122, 0, 0.2);
+      border: 1px solid var(--saffron);
+      color: #ffb774;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 24px;
+      color: #cbd5e1;
+      font-size: 1.05rem;
+    }
+
+    .cta-btn {
+      background: var(--saffron);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s, background 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: var(--saffron-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Grid & Cards */
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+
+    .sector-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .sector-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--saffron);
+    }
+
+    .sector-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .sector-icon {
+      font-size: 1.6rem;
+    }
+
+    .sector-card h3 {
+      font-size: 1.1rem;
+      color: var(--navy);
+    }
+
+    .sector-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--navy);
+      color: var(--navy);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--navy);
+      color: white;
+    }
+
+    /* Dashboard Tabs & Panels */
+    .module-pills {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .module-pill {
+      white-space: nowrap;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .module-pill.active {
+      background: var(--saffron);
+      color: white;
+      border-color: var(--saffron);
+    }
+
+    .demo-banner {
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .module-panel {
+      display: none;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .module-panel.active {
+      display: block;
+    }
+
+    .panel-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+      margin-bottom: 20px;
+    }
+
+    .panel-badge {
+      background: #f1f5f9;
+      color: var(--navy);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .metric-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .metric-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .metric-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .metric-note {
+      font-size: 0.8rem;
+      color: var(--green);
+      margin-top: 4px;
+    }
+
+    .ai-box {
+      background: #fff7ed;
+      border-left: 4px solid var(--saffron);
+      padding: 14px 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 0.94rem;
+    }
+
+    /* Forms & Interactive Controls */
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    input, select, textarea {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.92rem;
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--navy-light);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1.5px solid var(--navy);
+      color: var(--navy);
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: var(--navy);
+      color: white;
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-danger:hover {
+      background: #b91c1c;
+    }
+
+    /* Tables */
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: #f8fafc;
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    tr:hover td {
+      background: #fafbfc;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .badge-success {
+      background: var(--green-bg);
+      color: var(--green);
+    }
+
+    .badge-warning {
+      background: #fef3c7;
+      color: #b45309;
+    }
+
+    .badge-danger {
+      background: var(--danger-bg);
+      color: var(--danger);
+    }
+
+    .badge-info {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    /* Chart placeholder */
+    .chart-placeholder {
+      height: 280px;
+      background: #f8fafc;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Voice Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 29, 58, 0.6);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .voice-modal {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 32px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+
+    .voice-wave {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+      margin: 24px 0;
+      height: 60px;
+      align-items: flex-end;
+    }
+
+    .voice-wave span {
+      width: 6px;
+      background: var(--saffron);
+      border-radius: 3px;
+      animation: wave 1.2s ease-in-out infinite;
+    }
+
+    .voice-wave span:nth-child(2) { animation-delay: 0.1s; }
+    .voice-wave span:nth-child(3) { animation-delay: 0.2s; }
+    .voice-wave span:nth-child(4) { animation-delay: 0.3s; }
+    .voice-wave span:nth-child(5) { animation-delay: 0.4s; }
+
+    @keyframes wave {
+      0%, 100% { height: 10px; }
+      50% { height: 50px; }
+    }
+
+    .voice-modal h3 {
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .voice-modal p {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 24px 16px;
+      margin-top: 48px;
+    }
+
+    .footer-grid {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .footer-col h4 {
+      color: var(--navy);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .footer-col a {
+      display: block;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--saffron);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .controls {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .hero {
+        padding: 32px 20px;
+      }
+      .sectors-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Utility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Banner -->
+  <div class="top-banner" role="status" aria-live="polite">
+    <strong>BHARAT ONE</strong> — One Nation, One Intelligent Solution | Demo Environment — Data is simulated for demonstration purposes
+  </div>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="nav-container">
+      <div class="brand" onclick="switchView('home')" aria-label="Go to Home">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" fill="url(#grad)"/>
+          <path d="M16 8L22 16L16 24L10 16L16 8Z" fill="white"/>
+        </svg>
+        <defs>
+          <linearGradient id="grad" x1="0" y1="0" x2="32" y2="32">
+            <stop offset="0%" stop-color="#ff7a00"/>
+            <stop offset="100%" stop-color="#138808"/>
+          </linearGradient>
+        </defs>
+        <span>BHARAT ONE</span>
+        <span class="brand-badge">Gov AI</span>
+      </div>
+
+      <nav class="nav-tabs" role="tablist" aria-label="Main navigation">
+        <button class="nav-tab active" role="tab" data-view="home" aria-selected="true" onclick="switchView('home')">Home</button>
+        <button class="nav-tab" role="tab" data-view="sectors" aria-selected="false" onclick="switchView('sectors')">Sectors</button>
+        <button class="nav-tab" role="tab" data-view="dashboard" aria-selected="false" onclick="switchView('dashboard')">Dashboard</button>
+        <button class="nav-tab" role="tab" data-view="services" aria-selected="false" onclick="switchView('services')">Services</button>
+        <button class="nav-tab" role="tab" data-view="about" aria-selected="false" onclick="switchView('about')">About</button>
+      </nav>
+
+      <div class="controls">
+        <div class="lang-group" role="group" aria-label="Language selection">
+          <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn" data-lang="hi" onclick="setLanguage('hi')">हिं</button>
+          <button class="lang-btn" data-lang="ta" onclick="setLanguage('ta')">தமிழ்</button>
+          <button class="lang-btn" data-lang="te" onclick="setLanguage('te')">తెలుగు</button>
+        </div>
+        <button class="status-pill" id="statusPill" onclick="toggleStatus()" aria-pressed="false">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="statusText">Online</span>
+        </button>
+        <button class="voice-btn" id="voiceBtn" onclick="openVoiceModal()" aria-label="Voice Assistant">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="22"/>
+            <line x1="8" y1="22" x2="16" y2="22"/>
+          </svg>
+          <span>Voice</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- HOME VIEW -->
+    <section class="view-section active" id="view-home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="hero">
+        <span class="hero-tag">🇮🇳 Government of India Initiative</span>
+        <h1>One Nation, One Intelligent Solution</h1>
+        <p>BHARAT ONE unifies citizen services, governance intelligence, and digital infrastructure into a single AI-powered platform — bridging every department, every language, every citizen.</p>
+        <button class="cta-btn" onclick="switchView('dashboard')">Explore Dashboard →</button>
+      </div>
+
+      <div>
+        <h2 class="section-title">Key Sectors</h2>
+        <p class="section-subtitle">AI-powered modules transforming governance across domains</p>
+        <div class="sectors-grid" id="sectorsGrid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div>
+        <h2 class="section-title">Platform Highlights</h2>
+        <div class="sectors-grid">
+          <div class="sector-card">
+            <div class="sector-header">
+              <span class="sector-icon">🤖</span>
+              <h3>Unified AI Engine</h3>
+            </div>
+            <p>Single intelligence layer powering translation, classification, fraud detection, and predictive analytics across all ministries.</p>
+            <button class="btn-outline">Learn More</button>
+          </div>
+          <div class="sector-card">
+            <div class="sector-header">
+              <span class="sector-icon">🌐</span>
+              <h3>22+ Languages</h3>
+            </div>
+            <p>Real-time translation and voice support for all Constitution-recognized languages — no citizen left behind.</p>
+            <button class="btn-outline">Learn More</button>
+          </div>
+          <div class="sector-card">
+            <div class="sector-header">
+              <span class="sector-icon">🔐</span>
+              <h3>Zero-Trust Security</h3>
+            </div>
+            <p>End-to-end encryption, blockchain audit trails, and biometric verification — built for sovereign data standards.</p>
+            <button class="btn-outline">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTORS VIEW -->
+    <section class="view-section" id="view-sectors" role="tabpanel" aria-labelledby="sectors-tab">
+      <h2 class="section-title">All Sectors & Ministries</h2>
+      <p class="section-subtitle">Browse 32+ integrated sectors with live metrics and AI insights</p>
+      <div class="sectors-grid" id="allSectorsGrid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- DASHBOARD VIEW -->
+    <section class="view-section" id="view-dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+      <h2 class="section-title">Intelligence Dashboard</h2>
+      <p class="section-subtitle">Real-time governance metrics, AI insights, and cross-sector analytics</p>
+
+      <div class="module-pills" role="tablist" aria-label="Dashboard modules" id="modulePills">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="demo-banner">
+        <span>📊 Demo Mode — All data is simulated</span>
+        <button class="btn-secondary" style="padding: 4px 10px; font-size: 0.75rem;" onclick="refreshDashboard()">Refresh Data</button>
+      </div>
+
+      <div class="module-panel active" id="panel-overview" role="tabpanel">
+        <div class="panel-header">
+          <div>
+            <h3 style="color: var(--navy);">National Overview</h3>
+            <span class="panel-badge">Updated: <span id="lastUpdated">Just now</span></span>
+          </div>
+        </div>
+        <div class="metrics-row" id="overviewMetrics">
+          <!-- Populated by JS -->
+        </div>
+        <div class="ai-box" id="aiInsight">
+          <!-- Populated by JS -->
+        </div>
+        <div class="chart-placeholder" id="trendChart">📈 Trend Chart Placeholder — Connect to Chart.js / Recharts for live visualization</div>
+      </div>
+
+      <div class="module-panel" id="panel-health" role="tabpanel">
+        <div class="panel-header">
+          <h3 style="color: var(--navy);">Healthcare & Ayushman Bharat</h3>
+          <span class="panel-badge">Ministry of Health</span>
+        </div>
+        <div class="metrics-row" id="healthMetrics"></div>
+        <div class="chart-placeholder">📊 Hospital Bed Utilization / Claim Trends</div>
+      </div>
+
+      <div class="module-panel" id="panel-education" role="tabpanel">
+        <div class="panel-header">
+          <h3 style="color: var(--navy);">Education & Skilling</h3>
+          <span class="panel-badge">Ministry of Education</span>
+        </div>
+        <div class="metrics-row" id="eduMetrics"></div>
+        <div class="chart-placeholder">📊 Enrollment / Dropout / Skill Certification Trends</div>
+      </div>
+
+      <div class="module-panel" id="panel-agri" role="tabpanel">
+        <div class="panel-header">
+          <h3 style="color: var(--navy);">Agriculture & Farmers</h3>
+          <span class="panel-badge">Ministry of Agriculture</span>
+        </div>
+        <div class="metrics-row" id="agriMetrics"></div>
+        <div class="chart-placeholder">📊 MSP Procurement / Soil Health / Weather Alerts</div>
+      </div>
+
+      <div class="module-panel" id="panel-finance" role="tabpanel">
+        <div class="panel-header">
+          <h3 style="color: var(--navy);">Financial Inclusion</h3>
+          <span class="panel-badge">DFS / RBI / NPCI</span>
+        </div>
+        <div class="metrics-row" id="finMetrics"></div>
+        <div class="chart-placeholder">📊 UPI Volume / Jan Dhan / DBT Transfers</div>
+      </div>
+
+      <div class="module-panel" id="panel-transport" role="tabpanel">
+        <div class="panel-header">
+          <h3 style="color: var(--navy);">Transport & Logistics</h3>
+          <span class="panel-badge">MoRTH / Railways</span>
+        </div>
+        <div class="metrics-row" id="transportMetrics"></div>
+        <div class="chart-placeholder">📊 FASTag / Freight Corridor / Vande Bharat Metrics</div>
+      </div>
+    </section>
+
+    <!-- SERVICES VIEW -->
+    <section class="view-section" id="view-services" role="tabpanel" aria-labelledby="services-tab">
+      <h2 class="section-title">Citizen Services</h2>
+      <p class="section-subtitle">Access 500+ government services through a single intelligent interface</p>
+
+      <div class="form-row" style="margin-bottom: 24px;">
+        <input type="search" id="serviceSearch" placeholder="Search services... (e.g., passport, PAN, ration)" aria-label="Search services">
+        <select id="serviceCategory" aria-label="Filter by category">
+          <option value="">All Categories</option>
+          <option value="identity">Identity & Documentation</option>
+          <option value="benefits">Benefits & Subsidies</option>
+          <option value="health">Healthcare</option>
+          <option value="education">Education & Skills</option>
+          <option value="agriculture">Agriculture</option>
+          <option value="finance">Banking & Finance</option>
+          <option value="transport">Transport</option>
+        </select>
+      </div>
+
+      <div class="table-wrapper">
+        <table id="servicesTable">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Department</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="servicesBody">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ABOUT VIEW -->
+    <section class="view-section" id="view-about" role="tabpanel" aria-labelledby="about-tab">
+      <h2 class="section-title">About BHARAT ONE</h2>
+      <p class="section-subtitle">The vision, architecture, and impact of India's unified governance platform</p>
+
+      <div class="sectors-grid">
+        <div class="sector-card">
+          <div class="sector-header">
+            <span class="sector-icon">🎯</span>
+            <h3>Vision</h3>
+          </div>
+          <p>Create a single, intelligent digital backbone for governance that eliminates silos, reduces citizen burden, and enables data-driven policy at scale.</p>
+        </div>
+        <div class="sector-card">
+          <div class="sector-header">
+            <span class="sector-icon">🏗️</span>
+            <h3>Architecture</h3>
+          </div>
+          <p>Microservices on Kubernetes, event-driven with Kafka, AI/ML pipeline with TensorFlow/PyTorch, multilingual NLP (IndicBERT), blockchain audit layer.</p>
+        </div>
+        <div class="sector-card">
+          <div class="sector-header">
+            <span class="sector-icon">📈</span>
+            <h3>Impact</h3>
+          </div>
+          <p>Targeting 1.4B citizens, 500+ services, 22 languages, 99.9% uptime, <2s response time, 90% reduction in physical visits for top 50 services.</p>
+        </div>
+        <div class="sector-card">
+          <div class="sector-header">
+            <span class="sector-icon">🤝</span>
+            <h3>Partners</h3>
+          </div>
+          <p>MeitY, NIC, UIDAI, NPCI, RBI, NHA, CBSE, ICAR, IRCTC, State Governments, Academic Institutions (IITs, IIITs), Industry (TCS, Infosys, Wipro, startups).</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px; padding: 24px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);">
+        <h3 style="color: var(--navy); margin-bottom: 16px;">Technical Stack</h3>
+        <div class="form-row">
+          <div style="flex: 1; min-width: 200px;">
+            <strong>Frontend:</strong> React 18, TypeScript, Tailwind CSS, Vite
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <strong>Backend:</strong> Go, Python (FastAPI), Node.js, GraphQL
+          </div>
+        </div>
+        <div class="form-row">
+          <div style="flex: 1; min-width: 200px;">
+            <strong>AI/ML:</strong> PyTorch, TensorFlow, IndicBERT, Whisper, TTS
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <strong>Data:</strong> PostgreSQL, ClickHouse, Redis, Elasticsearch
+          </div>
+        </div>
+        <div class="form-row">
+          <div style="flex: 1; min-width: 200px;">
+            <strong>Infra:</strong> Kubernetes, Kafka, Istio, ArgoCD, Prometheus, Grafana
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <strong>Security:</strong> mTLS, OAuth2/OIDC, WebAuthn, Hardware Security Modules
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Voice Modal -->
+  <div class="modal-overlay" id="voiceModal" role="dialog" aria-modal="true" aria-labelledby="voiceModalTitle">
+    <div class="voice-modal">
+      <h3 id="voiceModalTitle">🎙️ Voice Assistant</h3>
+      <p>Listening... Speak your query in any supported language.</p>
+      <div class="voice-wave" id="voiceWave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p id="voiceTranscript" style="min-height: 24px; color: var(--muted); font-size: 0.9rem;"></p>
+      <div style="display: flex; gap: 10px; justify-content: center; margin-top: 16px;">
+        <button class="btn-secondary" onclick="closeVoiceModal()">Cancel</button>
+        <button class="btn-primary" onclick="simulateVoiceResult()">Try Demo Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>BHARAT ONE</h4>
+        <a href="#">About Us</a>
+        <a href="#">Vision & Mission</a>
+        <a href="#">Leadership</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="#">API Documentation</a>
+        <a href="#">Developer Portal</a>
+        <a href="#">Integration Guide</a>
+        <a href="#">Status Page</a>
+      </div>
+      <div class="footer-col">
+        <h4>Citizen Services</h4>
+        <a href="#">Service Directory</a>
+        <a href="#">Grievance Redressal</a>
+        <a href="#">RTI Portal</a>
+        <a href="#">Feedback</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal & Compliance</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Data Protection</a>
+        <a href="#">Accessibility</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">Twitter / X</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">YouTube</a>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+    <div style="max-width: 1240px; margin: 24px auto 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.85rem;">
+      © 2025 Government of India — Ministry of Electronics & Information Technology. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // ============ DATA ============
+    const sectors = [
+      { id: 'health', name: 'Healthcare', icon: '🏥', desc: 'Ayushman Bharat, Digital Health Mission, Telemedicine', color: '#ef4444' },
+      { id: 'education', name: 'Education', icon: '🎓', desc: 'NEP 2020, DIKSHA, SWAYAM, Skill India', color: '#3b82f6' },
+      { id: 'agri', name: 'Agriculture', icon: '🌾', desc: 'PM-KISAN, Soil Health, e-NAM, Crop Insurance', color: '#22c55e' },
+      { id: 'finance', name: 'Financial Inclusion', icon: '💰', desc: 'Jan Dhan, UPI, DBT, PM-SVANidhi, Mudra', color: '#f59e0b' },
+      { id: 'transport', name: 'Transport', icon: '🚂', desc: 'FASTag, Vande Bharat, Freight Corridors, Drone Logistics', color: '#8b5cf6' },
+      { id: 'rural', name: 'Rural Development', icon: '🏘️', desc: 'MGNREGA, PMAY-G, Jal Jeevan Mission, PMGSY', color: '#14b8a6' },
+      { id: 'urban', name: 'Urban Affairs', icon: '🏙️', desc: 'Smart Cities, AMRUT, PMAY-U, Metro Rail', color: '#ec4899' },
+      { id: 'energy', name: 'Energy', icon: '⚡', desc: 'Saubhagya, UJALA, Green Hydrogen, Solar Parks', color: '#f97316' },
+      { id: 'water', name: 'Water Resources', icon: '💧', desc: 'Namami Gange, Atal Bhujal, Interlinking Rivers', color: '#06b6d4' },
+      { id: 'defence', name: 'Defence', icon: '🛡️', desc: 'Agnipath, DRDO, Defence Corridors, iDEX', color: '#64748b' },
+      { id: 'space', name: 'Space', icon: '🚀', desc: 'Gaganyaan, Chandrayaan, Aditya-L1, IN-SPACe', color: '#1e293b' },
+      { id: 'digital', name: 'Digital India', icon: '💻', desc: 'Aadhaar, DigiLocker, UMANG, API Setu, ONDC', color: '#6366f1' },
+    ];
+
+    const allServices = [
+      { name: 'Aadhaar Enrollment & Update', dept: 'UIDAI', cat: 'identity', status: 'Online' },
+      { name: 'PAN Card Application', dept: 'Income Tax', cat: 'identity', status: 'Online' },
+      { name: 'Passport Seva', dept: 'MEA', cat: 'identity', status: 'Online' },
+      { name: 'Voter ID Registration', dept: 'ECI', cat: 'identity', status: 'Online' },
+      { name: 'Driving Licence', dept: 'MoRTH', cat: 'identity', status: 'Online' },
+      { name: 'Ayushman Bharat Card', dept: 'NHA', cat: 'health', status: 'Online' },
+      { name: 'COVID Vaccination Certificate', dept: 'MoHFW', cat: 'health', status: 'Online' },
+      { name: 'Teleconsultation (eSanjeevani)', dept: 'MoHFW', cat: 'health', status: 'Online' },
+      { name: 'PM-KISAN Beneficiary Status', dept: 'Agriculture', cat: 'agriculture', status: 'Online' },
+      { name: 'Crop Insurance Claim', dept: 'Agriculture', cat: 'agriculture', status: 'Online' },
+      { name: 'Soil Health Card', dept: 'Agriculture', cat: 'agriculture', status: 'Online' },
+      { name: 'Jan Dhan Account Opening', dept: 'DFS', cat: 'finance', status: 'Online' },
+      { name: 'UPI Transaction History', dept: 'NPCI', cat: 'finance', status: 'Online' },
+      { name: 'DBT Payment Status', dept: 'Controller General of Accounts', cat: 'finance', status: 'Online' },
+      { name: 'PM-SVANidhi Loan', dept: 'MoHUA', cat: 'finance', status: 'Online' },
+      { name: 'Scholarship Application (NSP)', dept: 'Education', cat: 'education', status: 'Online' },
+      { name: 'DIKSHA Course Access', dept: 'Education', cat: 'education', status: 'Online' },
+      { name: 'Skill India Registration', dept: 'MSDE', cat: 'education', status: 'Online' },
+      { name: 'FASTag Recharge', dept: 'NHAI', cat: 'transport', status: 'Online' },
+      { name: 'Train Ticket Booking (IRCTC)', dept: 'Railways', cat: 'transport', status: 'Online' },
+      { name: 'Vande Bharat Schedule', dept: 'Railways', cat: 'transport', status: 'Online' },
+      { name: 'MGNREGA Job Card', dept: 'Rural Development', cat: 'benefits', status: 'Online' },
+      { name: 'PMAY-G Application', dept: 'Rural Development', cat: 'benefits', status: 'Online' },
+      { name: 'Ration Card Services', dept: 'Food & PDS', cat: 'benefits', status: 'Online' },
+      { name: 'LPG Subsidy (PAHAL)', dept: 'Petroleum', cat: 'benefits', status: 'Online' },
+    ];
+
+    const modules = [
+      { id: 'overview', name: 'National Overview', icon: '📊' },
+      { id: 'health', name: 'Healthcare', icon: '🏥' },
+      { id: 'education', name: 'Education', icon: '🎓' },
+      { id: 'agri', name: 'Agriculture', icon: '🌾' },
+      { id: 'finance', name: 'Financial Inclusion', icon: '💰' },
+      { id: 'transport', name: 'Transport', icon: '🚂' },
+    ];
+
+    // Dynamic metrics generator
+    function randomMetric(base, variance = 0.15) {
+      const val = base * (1 + (Math.random() - 0.5) * 2 * variance);
+      return Math.round(val);
+    }
+
+    function formatNumber(n) {
+      if (n >= 1e9) return (n / 1e9).toFixed(1) + 'B';
+      if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
+      if (n >= 1e3) return (n / 1e3).toFixed(1) + 'K';
+      return n.toLocaleString();
+    }
+
+    function generateMetrics() {
+      return {
+        overview: [
+          { label: 'Active Citizens', value: formatNumber(randomMetric(950_000_000)), note: '+2.3% vs last month' },
+          { label: 'Services Delivered', value: formatNumber(randomMetric(420_000_000)), note: '98.7% SLA met' },
+          { label: 'Grievances Resolved', value: formatNumber(randomMetric(18_500_000)), note: 'Avg 4.2 days' },
+          { label: 'Digital Transactions', value: formatNumber(randomMetric(14_200_000_000)), note: '₹234T volume' },
+        ],
+        health: [
+          { label: 'AB-PMJAY Beneficiaries', value: formatNumber(randomMetric(580_000_000)), note: '32M hospitalizations' },
+          { label: 'ABHA IDs Created', value: formatNumber(randomMetric(520_000_000)), note: '1.2M linked records' },
+          { label: 'eSanjeevani Consultations', value: formatNumber(randomMetric(280_000_000)), note: '94% satisfaction' },
+          { label: 'Health Facilities Onboarded', value: formatNumber(randomMetric(210_000)), note: '87% public sector' },
+        ],
+        education: [
+          { label: 'Students Enrolled (K-12)', value: formatNumber(randomMetric(265_000_000)), note: 'GER 74.6%' },
+          { label: 'DIKSHA Active Users', value: formatNumber(randomMetric(180_000_000)), note: '4.2B learning sessions' },
+          { label: 'Skill Certifications', value: formatNumber(randomMetric(42_000_000)), note: '72% placement rate' },
+          { label: 'SWAYAM Course Completions', value: formatNumber(randomMetric(8_500_000)), note: '5,200+ courses' },
+        ],
+        agri: [
+          { label: 'PM-KISAN Beneficiaries', value: formatNumber(randomMetric(110_000_000)), note: '₹2.8L Cr disbursed' },
+          { label: 'e-NAM Mandis Integrated', value: formatNumber(randomMetric(1_389)), note: '1.7 Cr farmers' },
+          { label: 'Soil Health Cards Issued', value: formatNumber(randomMetric(230_000_000)), note: 'Cycle 2: 89% done' },
+          { label: 'Crop Insurance Claims Paid', value: formatNumber(randomMetric(1_200_000)), note: '₹1.1L Cr settled' },
+        ],
+        finance: [
+          { label: 'Jan Dhan Accounts', value: formatNumber(randomMetric(510_000_000)), note: '56% women holders' },
+          { label: 'UPI Monthly Volume', value: formatNumber(randomMetric(13_500_000_000)), note: '₹19.6L Cr value' },
+          { label: 'DBT Transfers (FY)', value: formatNumber(randomMetric(7_800)), note: '₹34L Cr transferred' },
+          { label: 'PM-SVANidhi Loans', value: formatNumber(randomMetric(52_000_000)), note: '89% to street vendors' },
+        ],
+        transport: [
+          { label: 'FASTag Penetration', value: formatNumber(randomMetric(97)) + '%', note: '6.8 Cr tags issued' },
+          { label: 'Vande Bharat Trains', value: formatNumber(randomMetric(82)), note: 'Connecting 28 states' },
+          { label: 'Freight Corridor Progress', value: formatNumber(randomMetric(78)) + '%', note: 'DFCCIL eastern/western' },
+          { label: 'Drone Delivery Pilots', value: formatNumber(randomMetric(14)), note: 'Medical & agri focus' },
+        ],
+      };
+    }
+
+    const aiInsights = [
+      '🤖 AI Insight: Healthcare utilization spikes 23% during festival seasons — predictive scaling recommended for AB-PMJAY claims processing.',
+      '🤖 AI Insight: UPI failure rate dropped to 0.34% after NPCI\'s new routing algorithm — saving ₹2,800 Cr/month in retries.',
+      '🤖 AI Insight: PM-KISAN beneficiary verification via satellite imagery reduced ghost beneficiaries by 12% in pilot districts.',
+      '🤖 AI Insight: School dropout risk model identifies 4.2L at-risk students with 87% accuracy — enabling targeted interventions.',
+      '🤖 AI Insight: FASTag lane congestion prediction reduces avg wait time from 4.2min to 1.8min at top 50 toll plazas.',
+      '🤖 AI Insight: Multilingual chatbot handles 68% of citizen queries without human escalation — 22 languages supported.',
+    ];
+
+    // ============ STATE ============
+    let currentView = 'home';
+    let currentModule = 'overview';
+    let currentLanguage = 'en';
+    let isOnline = true;
+    let metricsData = generateMetrics();
+
+    // ============ INIT ============
+    document.addEventListener('DOMContentLoaded', () => {
+      renderSectorsGrid('sectorsGrid', sectors.slice(0, 6));
+      renderAllSectorsGrid();
+      renderModulePills();
+      renderDashboardPanel('overview');
+      renderServicesTable();
+      startAutoRefresh();
+      updateLastUpdated();
+    });
+
+    // ============ VIEW SWITCHING ============
+    function switchView(viewId) {
+      document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+
+      const viewEl = document.getElementById('view-' + viewId);
+      const tabEl = document.querySelector('.nav-tab[data-view="' + viewId + '"]');
+      if (viewEl) viewEl.classList.add('active');
+      if (tabEl) {
+        tabEl.classList.add('active');
+        tabEl.setAttribute('aria-selected', 'true');
+      }
+      currentView = viewId;
+
+      if (viewId === 'dashboard') {
+        renderDashboardPanel(currentModule);
+      }
+    }
+
+    // ============ LANGUAGE ============
+    const translations = {
+      en: { home: 'Home', sectors: 'Sectors', dashboard: 'Dashboard', services: 'Services', about: 'About' },
+      hi: { home: 'होम', sectors: 'सेक्टर', dashboard: 'डैशबोर्ड', services: 'सेवाएं', about: 'हमारे बारे में' },
+      ta: { home: 'முகப்பு', sectors: 'துறைங்கள்', dashboard: 'டாஷ்போர்டு', services: 'சேவைகள்', about: 'எங்களைப் பற்றி' },
+      te: { home: 'హోమ్', sectors: 'ప్రముఖాలు', dashboard: 'డాష్‌బోర్డ్', services: 'సేవలు', about: 'మా గురించి' },
+    };
+
+    function setLanguage(lang) {
+      currentLanguage = lang;
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('.lang-btn[data-lang="' + lang + '"]').classList.add('active');
+      const t = translations[lang];
+      document.querySelectorAll('.nav-tab').forEach((tab, i) => {
+        const views = ['home', 'sectors', 'dashboard', 'services', 'about'];
+        tab.textContent = t[views[i]];
+      });
+      // Re-render dynamic content for new language
+      if (currentView === 'dashboard') renderDashboardPanel(currentModule);
+      if (currentView === 'services') renderServicesTable();
+    }
+
+    // ============ STATUS TOGGLE ============
+    function toggleStatus() {
+      isOnline = !isOnline;
+      const pill = document.getElementById('statusPill');
+      const text = document.getElementById('statusText');
+      const dot = pill.querySelector('.status-dot');
+      if (isOnline) {
+        pill.classList.remove('offline');
+        text.textContent = 'Online';
+        dot.style.background = 'var(--green)';
+        pill.setAttribute('aria-pressed', 'false');
+      } else {
+        pill.classList.add('offline');
+        text.textContent = 'Offline';
+        dot.style.background = '#f59e0b';
+        pill.setAttribute('aria-pressed', 'true');
+      }
+    }
+
+    // ============ VOICE MODAL ============
+    function openVoiceModal() {
+      document.getElementById('voiceModal').classList.add('active');
+      document.getElementById('voiceTranscript').textContent = '';
+      // Simulate wave animation
+      const wave = document.getElementById('voiceWave');
+      wave.style.animationPlayState = 'running';
+    }
+
+    function closeVoiceModal() {
+      document.getElementById('voiceModal').classList.remove('active');
+    }
+
+    function simulateVoiceResult() {
+      const queries = [
+        'Show me PM-KISAN status for Maharashtra',
+        'How many Ayushman cards issued this month?',
+        'UPI transaction volume for January',
+        'School dropout rate in aspirational districts',
+        'FASTag collection at Mumbai toll plaza',
+      ];
+      const query = queries[Math.floor(Math.random() * queries.length)];
+      document.getElementById('voiceTranscript').textContent = '"' + query + '"';
+      setTimeout(() => {
+        document.getElementById('voiceTranscript').innerHTML = '"' + query + '"<br><span style="color: var(--green);">→ Opening relevant dashboard...</span>';
+      }, 1000);
+      setTimeout(closeVoiceModal, 2500);
+    }
+
+    // ============ RENDER FUNCTIONS ============
+    function renderSectorsGrid(containerId, sectorList) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = sectorList.map(s => `
+        <div class="sector-card" style="border-left: 4px solid ${s.color};" onclick="switchView('dashboard'); setTimeout(() => switchModule('${s.id}'), 100)">
+          <div class="sector-header">
+            <span class="sector-icon">${s.icon}</span>
+            <h3>${s.name}</h3>
+          </div>
+          <p>${s.desc}</p>
+          <button class="btn-outline">Explore →</button>
+        </div>
+      `).join('');
+    }
+
+    function renderAllSectorsGrid() {
+      const container = document.getElementById('allSectorsGrid');
+      if (!container) return;
+      container.innerHTML = sectors.map(s => `
+        <div class="sector-card" style="border-left: 4px solid ${s.color};" onclick="switchView('dashboard'); setTimeout(() => switchModule('${s.id}'), 100)">
+          <div class="sector-header">
+            <span class="sector-icon">${s.icon}</span>
+            <h3>${s.name}</h3>
+          </div>
+          <p>${s.desc}</p>
+          <button class="btn-outline">View Dashboard →</button>
+        </div>
+      `).join('');
+    }
+
+    function renderModulePills() {
+      const container = document.getElementById('modulePills');
+      if (!container) return;
+      container.innerHTML = modules.map(m => `
+        <button class="module-pill ${m.id === currentModule ? 'active' : ''}" role="tab" data-module="${m.id}" onclick="switchModule('${m.id}')">
+          ${m.icon} ${m.name}
+        </button>
+      `).join('');
+    }
+
+    function switchModule(moduleId) {
+      currentModule = moduleId;
+      document.querySelectorAll('.module-pill').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.module-panel').forEach(p => p.classList.remove('active'));
+      const pill = document.querySelector('.module-pill[data-module="' + moduleId + '"]');
+      const panel = document.getElementById('panel-' + moduleId);
+      if (pill) pill.classList.add('active');
+      if (panel) panel.classList.add('active');
+      renderDashboardPanel(moduleId);
+    }
+
+    function renderDashboardPanel(moduleId) {
+      const metrics = metricsData[moduleId] || metricsData.overview;
+      const container = document.getElementById(moduleId === 'overview' ? 'overviewMetrics' : moduleId + 'Metrics');
+      if (!container) return;
+      container.innerHTML = metrics.map(m => `
+        <div class="metric-box">
+          <div class="metric-label">${m.label}</div>
+          <div class="metric-value">${m.value}</div>
+          <div class="metric-note">${m.note}</div>
+        </div>
+      `).join('');
+
+      // Update AI insight for overview
+      if (moduleId === 'overview') {
+        const insightEl = document.getElementById('aiInsight');
+        if (insightEl) {
+          const insight = aiInsights[Math.floor(Math.random() * aiInsights.length)];
+          insightEl.innerHTML = insight;
+        }
+      }
+    }
+
+    function renderServicesTable() {
+      const search = document.getElementById('serviceSearch')?.value.toLowerCase() || '';
+      const category = document.getElementById('serviceCategory')?.value || '';
+      const tbody = document.getElementById('servicesBody');
+      if (!tbody) return;
+
+      const filtered = allServices.filter(s => {
+        const matchesSearch = s.name.toLowerCase().includes(search) || s.dept.toLowerCase().includes(search);
+        const matchesCat = !category || s.cat === category;
+        return matchesSearch && matchesCat;
+      });
+
+      tbody.innerHTML = filtered.map(s => `
+        <tr>
+          <td><strong>${s.name}</strong></td>
+          <td>${s.dept}</td>
+          <td><span class="badge badge-info">${s.cat.replace('-', ' ')}</span></td>
+          <td><span class="badge badge-success">${s.status}</span></td>
+          <td><button class="btn-outline" style="padding: 5px 10px; font-size: 0.8rem;">Access</button></td>
+        </tr>
+      `).join('');
+    }
+
+    // ============ EVENT LISTENERS ============
+    document.getElementById('serviceSearch')?.addEventListener('input', renderServicesTable);
+    document.getElementById('serviceCategory')?.addEventListener('change', renderServicesTable);
+
+    // ============ AUTO REFRESH ============
+    function startAutoRefresh() {
+      setInterval(() => {
+        if (isOnline && currentView === 'dashboard') {
+          metricsData = generateMetrics();
+          renderDashboardPanel(currentModule);
+          updateLastUpdated();
+        }
+      }, 30000); // Every 30 seconds
+    }
+
+    function refreshDashboard() {
+      metricsData = generateMetrics();
+      renderDashboardPanel(currentModule);
+      updateLastUpdated();
+    }
+
+    function updateLastUpdated() {
+      const el = document.getElementById('lastUpdated');
+      if (el) {
+        const now = new Date();
+        el.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      }
+    }
+
+    // ============ KEYBOARD SHORTCUTS ============
+    document.addEventListener('keydown', (e) => {
+      // Alt + 1-5 for view switching
+      if (e.altKey && e.key >= '1' && e.key <= '5') {
+        e.preventDefault();
+        const views = ['home', 'sectors', 'dashboard', 'services', 'about'];
+        switchView(views[parseInt(e.key) - 1]);
+      }
+      // Escape to close modal
+      if (e.key === 'Escape') {
+        closeVoiceModal();
+      }
+      // Space to activate voice (when not in input)
+      if (e.key === ' ' && e.target === document.body) {
+        e.preventDefault();
+        openVoiceModal();
+      }
+    });
+
+    // ============ ACCESSIBILITY ============
+    // Focus management for modals
+    document.getElementById('voiceModal')?.addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeVoiceModal();
+    });
+
+    // Announce view changes to screen readers
+    function announceToScreenReader(message) {
+      const announcement = document.createElement('div');
+      announcement.setAttribute('role', 'status');
+      announcement.setAttribute('aria-live', 'polite');
+      announcement.className = 'sr-only';
+      announcement.textContent = message;
+      document.body.appendChild(announcement);
+      setTimeout(() => announcement.remove(), 1000);
+    }
+
+    // Patch switchView to announce
+    const originalSwitchView = switchView;
+    switchView = function(viewId) {
+      originalSwitchView(viewId);
+      const names = { home: 'Home', sectors: 'Sectors', dashboard: 'Dashboard', services: 'Services', about: 'About' };
+      announceToScreenReader('Navigated to ' + names[viewId]);
+    };
+  </script>
+</body>
+</html>

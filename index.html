@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BHARAT ONE — One Nation, One Intelligent Solution. Unified AI-powered governance platform for citizen services, dashboard analytics, and multi-sector intelligence." />
+  <meta name="theme-color" content="#0b1d3a" />
+  <title>BHARAT ONE — One Nation, One Intelligent Solution</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.svg" />
+  <link rel="manifest" href="assets/images/manifest.json" />
+</head>
+<body>
+  <!-- Top Banner -->
+  <div class="top-banner" role="status" aria-live="polite">
+    <strong>BHARAT ONE</strong> — One Nation, One Intelligent Solution | Demo Environment — Data is simulated for demonstration purposes
+  </div>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="nav-container">
+      <div class="brand" onclick="switchView('home')" aria-label="Go to Home">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" fill="url(#grad)"/>
+          <path d="M16 8L22 16L16 24L10 16L16 8Z" fill="white"/>
+        </svg>
+        <defs>
+          <linearGradient id="grad" x1="0" y1="0" x2="32" y2="32">
+            <stop offset="0%" stop-color="#ff7a00"/>
+            <stop offset="100%" stop-color="#138808"/>
+          </linearGradient>
+        </defs>
+        <span>BHARAT ONE</span>
+        <span class="brand-badge">Gov AI</span>
+      </div>
+
+      <nav class="nav-tabs" role="tablist" aria-label="Main navigation">
+        <button class="nav-tab active" role="tab" data-view="home" aria-selected="true" onclick="switchView('home')">Home</button>
+        <button class="nav-tab" role="tab" data-view="sectors" aria-selected="false" onclick="switchView('sectors')">Sectors</button>
+        <button class="nav-tab" role="tab" data-view="dashboard" aria-selected="false" onclick="switchView('dashboard')">Dashboard</button>
+        <button class="nav-tab" role="tab" data-view="services" aria-selected="false" onclick="switchView('services')">Services</button>
+        <button class="nav-tab" role="tab" data-view="about" aria-selected="false" onclick="switchView('about')">About</button>
+      </nav>
+
+      <div class="controls">
+        <div class="lang-group" role="group" aria-label="Language selection">
+          <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn" data-lang="hi" onclick="setLanguage('hi')">हिं</button>
+          <button class="lang-btn" data-lang="ta" onclick="setLanguage('ta')">தமிழ்</button>
+          <button class="lang-btn" data-lang="te" onclick="setLanguage('te')">తెలుగు</button>
+        </div>
+        <button class="status-pill" id="statusPill" onclick="toggleStatus()" aria-pressed="false">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="statusText">Online</span>
+        </button>
+        <button class="voice-btn" id="voiceBtn" onclick="openVoiceModal()" aria-label="Voice Assistant">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="22"/>
+            <line x1="8" y1="22" x2="16" y2="22"/>
+          </svg>
+          <span>Voice</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- HOME VIEW -->
+    <section class="view-section active" id="view-home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="hero">
+        <span class="hero-tag">🇮🇳 Government of India Initiative</span>
+        <h1>One Nation, One Intelligent Solution</h1>
+        <p>BHARAT ONE unifies citizen services, governance intelligence, and digital infrastructure into a single AI-powered platform — bridging every department, every language, every citizen.</p>
+        <button class="cta-btn" onclick="switchView('dashboard')">Explore Dashboard →</button>
+      </div>
+
+      <div>
+        <h2 class="section-title">Key Sectors</h2>
+        <p class="section-subtitle">AI-powered modules transforming governance across domains</p>
+        <div class="sectors-grid" id="sectorsGrid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div>
+        <h2 class="section-title">Platform Highlights</h2>
+        <div class="sectors-grid">
+          <div class="sector-card">
+            <div class="sector-header">
+              <span class="sector-icon">🤖</span>
+              <h3>Unified AI Engine</h3>
+            </div>
+            <p>Single intelligence layer powering translation, classification, fraud detection, and predictive analytics across all ministries.</p>
+            <button class="btn-outline">Learn More</button>
+          </div>
+          <div class="sector-card">
+            <div class="sector-header">
+              <span class="sector-icon">🌐</span>
+              <h3>22+ Languages</h3>
+            </div>
+            <p>Real-time translation and voice support for all Constitution-recognized languages — no citizen left behind.</p>
+            <button class="btn-outline">Learn More</button>
+          </div>
+          <div class="sector-card">
+            <div class="sector-header">
+              <span class="sector-icon">🔐</span>
+              <h3>Zero-Trust Security</h3>
+            </div>
+            <p>End-to-end encryption, blockchain audit trails, and biometric verification — built for sovereign data standards.</p>
+            <button class="btn-outline">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTORS VIEW -->
+    <section class="view-section" id="view-sectors" role="tabpanel" aria-labelledby="sectors-tab">
+      <h2 class="section-title">All Sectors & Ministries</h2>
+      <p class="section-subtitle">Browse 32+ integrated sectors with live metrics and AI insights</p>
+      <div class="sectors-grid" id="allSectorsGrid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- DASHBOARD VIEW -->
+    <section class="view-section" id="view-dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+      <h2 class="section-title">Intelligence Dashboard</h2>
+      <p class="section-subtitle">Real-time governance metrics, AI insights, and cross-sector analytics</p>
+
+      <div class="module-pills" role="tablist" aria-label="Dashboard modules" id="modulePills">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="demo-banner">
+        <span>📊 Demo Mode — All data is simulated</span>
+        <button class="btn-secondary" style="padding: 4px 10px; font-size: 0.75rem;" onclick="refreshDashboard()">Refresh Data</button>
+      </div>
+
+      <div class="module-panel active" id="panel-overview" role="tabpanel">
+        <div class="panel-header">
+          <div>
+            <h3 style="color: var(--navy);">National Overview</h3>
+            <span class="panel-badge">Updated: <span id="lastUpdated">Just now</span></span>
+          </div>
+        </div>
+        <div class="metrics-row" id="overviewMetrics">
+          <!-- Populated by JS -->
+        </div>
+        <div class="ai-box" id="aiInsight">
+          <!-- Populated by JS -->
+        </div>
+        <div class="chart-placeholder" id="trendChart">📈 Trend Chart Placeholder — Connect to Chart.js / Recharts for live visualization</div>
+      </div>
+
+      <div class="module-panel" id="panel-health" role="tabpanel">
+        <div class="panel-header">
+          <h3 style="color: var(--navy);">Healthcare & Ayushman Bharat</h3>
+          <span class="panel-badge">Ministry of Health</span>
+        </div>
+        <div class="metrics-row" id="healthMetrics"></div>
+        <div class="chart-placeholder">📊 Hospital Bed Utilization / Claim Trends</div>
+      </div>
+
+      <div class="module-panel" id="panel-education" role="tabpanel">
+        <div class="panel-header">
+          <h3 style="color: var(--navy);">Education & Skilling</h3>
+          <span class="panel-badge">Ministry of Education</span>
+        </div>
+        <div class="metrics-row" id="eduMetrics"></div>
+        <div class="chart-placeholder">📊 Enrollment / Dropout / Skill Certification Trends</div>
+      </div>
+
+      <div class="module-panel" id="panel-agri" role="tabpanel">
+        <div class="panel-header">
+          <h3 style="color: var(--navy);">Agriculture & Farmers</h3>
+          <span class="panel-badge">Ministry of Agriculture</span>
+        </div>
+        <div class="metrics-row" id="agriMetrics"></div>
+        <div class="chart-placeholder">📊 MSP Procurement / Soil Health / Weather Alerts</div>
+      </div>
+
+      <div class="module-panel" id="panel-finance" role="tabpanel">
+        <div class="panel-header">
+          <h3 style="color: var(--navy);">Financial Inclusion</h3>
+          <span class="panel-badge">DFS / RBI / NPCI</span>
+        </div>
+        <div class="metrics-row" id="finMetrics"></div>
+        <div class="chart-placeholder">📊 UPI Volume / Jan Dhan / DBT Transfers</div>
+      </div>
+
+      <div class="module-panel" id="panel-transport" role="tabpanel">
+        <div class="panel-header">
+          <h3 style="color: var(--navy);">Transport & Logistics</h3>
+          <span class="panel-badge">MoRTH / Railways</span>
+        </div>
+        <div class="metrics-row" id="transportMetrics"></div>
+        <div class="chart-placeholder">📊 FASTag / Freight Corridor / Vande Bharat Metrics</div>
+      </div>
+    </section>
+
+    <!-- SERVICES VIEW -->
+    <section class="view-section" id="view-services" role="tabpanel" aria-labelledby="services-tab">
+      <h2 class="section-title">Citizen Services</h2>
+      <p class="section-subtitle">Access 500+ government services through a single intelligent interface</p>
+
+      <div class="form-row" style="margin-bottom: 24px;">
+        <input type="search" id="serviceSearch" placeholder="Search services... (e.g., passport, PAN, ration)" aria-label="Search services">
+        <select id="serviceCategory" aria-label="Filter by category">
+          <option value="">All Categories</option>
+          <option value="identity">Identity & Documentation</option>
+          <option value="benefits">Benefits & Subsidies</option>
+          <option value="health">Healthcare</option>
+          <option value="education">Education & Skills</option>
+          <option value="agriculture">Agriculture</option>
+          <option value="finance">Banking & Finance</option>
+          <option value="transport">Transport</option>
+        </select>
+      </div>
+
+      <div class="table-wrapper">
+        <table id="servicesTable">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Department</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="servicesBody">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ABOUT VIEW -->
+    <section class="view-section" id="view-about" role="tabpanel" aria-labelledby="about-tab">
+      <h2 class="section-title">About BHARAT ONE</h2>
+      <p class="section-subtitle">The vision, architecture, and impact of India's unified governance platform</p>
+
+      <div class="sectors-grid">
+        <div class="sector-card">
+          <div class="sector-header">
+            <span class="sector-icon">🎯</span>
+            <h3>Vision</h3>
+          </div>
+          <p>Create a single, intelligent digital backbone for governance that eliminates silos, reduces citizen burden, and enables data-driven policy at scale.</p>
+        </div>
+        <div class="sector-card">
+          <div class="sector-header">
+            <span class="sector-icon">🏗️</span>
+            <h3>Architecture</h3>
+          </div>
+          <p>Microservices on Kubernetes, event-driven with Kafka, AI/ML pipeline with TensorFlow/PyTorch, multilingual NLP (IndicBERT), blockchain audit layer.</p>
+        </div>
+        <div class="sector-card">
+          <div class="sector-header">
+            <span class="sector-icon">📈</span>
+            <h3>Impact</h3>
+          </div>
+          <p>Targeting 1.4B citizens, 500+ services, 22 languages, 99.9% uptime, <2s response time, 90% reduction in physical visits for top 50 services.</p>
+        </div>
+        <div class="sector-card">
+          <div class="sector-header">
+            <span class="sector-icon">🤝</span>
+            <h3>Partners</h3>
+          </div>
+          <p>MeitY, NIC, UIDAI, NPCI, RBI, NHA, CBSE, ICAR, IRCTC, State Governments, Academic Institutions (IITs, IIITs), Industry (TCS, Infosys, Wipro, startups).</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px; padding: 24px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);">
+        <h3 style="color: var(--navy); margin-bottom: 16px;">Technical Stack</h3>
+        <div class="form-row">
+          <div style="flex: 1; min-width: 200px;">
+            <strong>Frontend:</strong> React 18, TypeScript, Tailwind CSS, Vite
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <strong>Backend:</strong> Go, Python (FastAPI), Node.js, GraphQL
+          </div>
+        </div>
+        <div class="form-row">
+          <div style="flex: 1; min-width: 200px;">
+            <strong>AI/ML:</strong> PyTorch, TensorFlow, IndicBERT, Whisper, TTS
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <strong>Data:</strong> PostgreSQL, ClickHouse, Redis, Elasticsearch
+          </div>
+        </div>
+        <div class="form-row">
+          <div style="flex: 1; min-width: 200px;">
+            <strong>Infra:</strong> Kubernetes, Kafka, Istio, ArgoCD, Prometheus, Grafana
+          </div>
+          <div style="flex: 1; min-width: 200px;">
+            <strong>Security:</strong> mTLS, OAuth2/OIDC, WebAuthn, Hardware Security Modules
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Voice Modal -->
+  <div class="modal-overlay" id="voiceModal" role="dialog" aria-modal="true" aria-labelledby="voiceModalTitle">
+    <div class="voice-modal">
+      <h3 id="voiceModalTitle">🎙️ Voice Assistant</h3>
+      <p>Listening... Speak your query in any supported language.</p>
+      <div class="voice-wave" id="voiceWave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p id="voiceTranscript" style="min-height: 24px; color: var(--muted); font-size: 0.9rem;"></p>
+      <div style="display: flex; gap: 10px; justify-content: center; margin-top: 16px;">
+        <button class="btn-secondary" onclick="closeVoiceModal()">Cancel</button>
+        <button class="btn-primary" onclick="simulateVoiceResult()">Try Demo Query</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>BHARAT ONE</h4>
+        <a href="#">About Us</a>
+        <a href="#">Vision & Mission</a>
+        <a href="#">Leadership</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="#">API Documentation</a>
+        <a href="#">Developer Portal</a>
+        <a href="#">Integration Guide</a>
+        <a href="#">Status Page</a>
+      </div>
+      <div class="footer-col">
+        <h4>Citizen Services</h4>
+        <a href="#">Service Directory</a>
+        <a href="#">Grievance Redressal</a>
+        <a href="#">RTI Portal</a>
+        <a href="#">Feedback</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal & Compliance</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Data Protection</a>
+        <a href="#">Accessibility</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">Twitter / X</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">YouTube</a>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+    <div style="max-width: 1240px; margin: 24px auto 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.85rem;">
+      © 2025 Government of India — Ministry of Electronics & Information Technology. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

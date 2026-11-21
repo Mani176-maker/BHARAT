@@ -1,0 +1,27 @@
+{
+  "name": "BHARAT ONE — One Nation, One Intelligent Solution",
+  "short_name": "BHARAT ONE",
+  "description": "Unified AI-powered governance platform for citizen services, dashboard analytics, and multi-sector intelligence.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#0b1d3a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["government", "productivity", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+}
